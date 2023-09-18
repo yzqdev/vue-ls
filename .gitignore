@@ -6,9 +6,7 @@
 
 ### Vuejs template
 # Recommended template: Node.gitignore
-dist/*
-!dist/index.html
-!dist/vue2.js
+
 .idea
 node_modules/
 
