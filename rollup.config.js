@@ -1,10 +1,16 @@
 import typescript from "@rollup/plugin-typescript";
 import json from "@rollup/plugin-json";
 import {defineConfig} from "rollup";
-
+import { dts } from "rollup-plugin-dts";
 export default defineConfig({
     input: "src/index.ts", // 打包入口
-    output: [{
+    output: [
+        {
+            input:"src/index.ts" ,
+            output: [{ file: "dist/my-library.d.ts", format: "es" }],
+            plugins: [dts()],
+        },
+        {
         // 打包出口
         file: "dist/vue-ls.js", // 最终打包出来的文件路径和文件名，这里是在package.json的browser: 'dist/index.js'字段中配置的
         format: 'esm', // esm,umd是兼容amd/cjs/iife的通用打包格式，适合浏览器
