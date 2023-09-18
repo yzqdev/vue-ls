@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue-ls Synchronized counter example</title>
+</head>
+<body>
+    <h1>Synchronized tab counter</h1>
+    <div id="app">
+      localStorage: <span id="count">{{localCounter}}</span> <br>
+      sessionCounter: {{sessionCounter}}
+      <div>
+        <button id="increment" type="button" @click="increment()">Increment</button>
+        <button id="decrement" type="button" @click="decrement()">Decrement</button>
+      </div>
+    </div>
+
+
+    <script type="text/javascript" src="vue2.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script type="text/javascript" src="vue-ls.iife.js"></script>
+    <script type="text/javascript">
+      Vue.use(_.clone(VueStorage), {
+        name: 'ss',
+        storage: 'session',
+      });
+
+      Vue.use(_.clone(VueStorage), {
+        name: 'ls',
+        storage: 'local',
+      });
+
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            localCounter: 0,
+            sessionCounter: 0,
+          };
+        },
+        watch: {
+          localCounter: function(val) {
+console.log('启动')
+            this.$ls.set('localCounter', val, 3*1000)
+          },
+          sessionCounter: function(val) {
+            this.$ss.set('sessionCounter', val)
+          }
+        },
+        created() {
+            console.log(this)
+          this.localCounter = this.$ls.get('localCounter', 0);
+          var _this = this;
+
+          this.$ls.on('localCounter', function(val) {
+            _this.localCounter = val;
+          });
+
+          this.sessionCounter = this.$ss.get('sessionCounter', 0);
+
+          this.$ss.on('sessionCounter', function(val) {
+            _this.sessionCounter = val;
+          });
+        },
+        methods: {
+          increment: function() {
+            this.localCounter++;
+            this.sessionCounter++;
+          },
+
+          decrement: function() {
+            this.localCounter--;
+            this.sessionCounter--;
+          }
+        }
+      });
+
+    </script>
+</body>
+</html>
