@@ -76,7 +76,7 @@ const VueStorage = {
      * @param {Object} options
      * @returns {WebStorage}
      */
-    instance(options:VuelsOptions = {}) {
+    instance(options:VuelsOptions = {}):WebStorage {
         const {ls, _options} = this.useStorage(options);
         // Vue[_options.name] = ls; // eslint-disable-line
         return ls;

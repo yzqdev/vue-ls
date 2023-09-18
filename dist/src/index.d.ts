@@ -19,7 +19,7 @@ declare const VueStorage: {
      * @param {Object} options
      * @returns {WebStorage}
      */
-    instance(options?: VuelsOptions): any;
+    instance(options?: VuelsOptions): WebStorage;
     install(Vue: any, options?: VuelsOptions): void;
 };
 export default VueStorage;

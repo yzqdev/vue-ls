@@ -1,8 +1,13 @@
 {
   "name": "vue-ls",
-  "version": "4.2.0",
+  "version": "1.0.2",
   "description": "Vue plugin for work with LocalStorage from Vue context",
   "type": "module",
+  "private": true,
+  "workspaces": [
+    "examples",
+    "."
+  ],
   "module": "dist/vue-ls.js",
   "types": "dist/src/index.d.ts",
   "files": [
@@ -10,7 +15,8 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "release": "tsc"
+    "release": "tsc",
+    "dev": "yarn workspace  examples dev"
   },
   "dependencies": {},
   "devDependencies": {
