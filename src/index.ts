@@ -7,12 +7,13 @@ export interface VuelsOptions {
     name?:string
     namespace?:string
 }
+
 /**
  * @type {{install: (function(Object, Object): WebStorage)}}
  */
 const VueStorage = {
 
-    useStorage(options: VuelsOptions)  {
+    useStorage(options: VuelsOptions):{ls:WebStorage,_options:VuelsOptions}  {
         const _options = {
             ...options,
             storage: options.storage || 'local',

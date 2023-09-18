@@ -10,11 +10,7 @@ export interface VuelsOptions {
 declare const VueStorage: {
     useStorage(options: VuelsOptions): {
         ls: WebStorage;
-        _options: {
-            storage: "local" | "session" | "memory";
-            name: string;
-            namespace?: string;
-        };
+        _options: VuelsOptions;
     };
     /**
      * Install plugin
