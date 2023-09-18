@@ -1,0 +1,17 @@
+### Vue template
+# gitignore template for Vue.js projects
+#
+# Recommended template: Node.gitignore
+
+
+### Vuejs template
+# Recommended template: Node.gitignore
+dist/
+!dist/index.html
+!dist/vue2.js
+.idea
+node_modules/
+
+npm-debug.log
+yarn-error.log
+
