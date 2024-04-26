@@ -1,9 +1,11 @@
 {
-  "name": "vue-ls",
-  "version": "1.0.4",
+  "name": "@yzqdev/vue-ls",
+  "version": "1.0.5",
   "description": "Vue plugin for work with LocalStorage from Vue context",
   "type": "module",
-  "private": true,
+   "publishConfig": {
+    "access": "public"
+  },
   "workspaces": [
     "examples",
     "."
