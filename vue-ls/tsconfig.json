@@ -1,0 +1,19 @@
+
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "dist",
+    "target": "ES2015",
+    "module": "ES2015",
+    "declaration": true,
+    "moduleResolution": "Bundler",
+    "strict": false,
+    "lib": ["esnext","DOM"],
+    "rootDir": "src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true
+  }
+}

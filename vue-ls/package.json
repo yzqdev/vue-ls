@@ -1,0 +1,33 @@
+{
+  "name": "@yzqdev/vue-ls",
+  "version": "1.0.6",
+  "description": "Vue plugin for work with LocalStorage from Vue context",
+  "type": "module",
+   "publishConfig": {
+    "access": "public"
+  },
+ 
+  "module": "dist/vue-ls.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist&&rollup -c",
+    "release": "rimraf dist&&tsc",
+    "dev": "pnpm -C  examples dev"
+  },
+  "devDependencies": {
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/node": "^22.13.10",
+    "prettier": "^3.5.3",
+    "rimraf": "6.0.1",
+    "rollup": "^4.35.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.2"
+  },
+  "license": "MIT"
+}
